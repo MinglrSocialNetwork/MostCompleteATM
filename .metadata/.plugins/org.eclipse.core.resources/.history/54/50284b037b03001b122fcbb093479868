@@ -1,0 +1,52 @@
+package com.dao;
+
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.beans.User;
+
+@Transactional
+@Repository("UserRepoImpl")
+public class UserRepoImpl implements UserRepo{
+	
+	private SessionFactory sesFact;
+	
+	public void insertUser(User user) {
+		
+		sesFact.getCurrentSession().save(user);
+	}
+
+	
+	public List<User> selectAllUsers() {
+		
+		return sesFact.getCurrentSession().createQuery("from User", User.class).list();
+	}
+
+
+
+	@Override
+	public void updateUser(User user) {
+		
+		sesFact.getCurrentSession().update(user);
+	}
+
+
+	@Override
+	public List<User> selectByUserId(Integer id) {
+		
+		List<User> userList = sesFact.getCurrentSession().createQuery("from User where id = '" + id + "'",User.class).list();
+		
+		return userList;
+	}
+
+
+	@Override
+	public void deleteUserById(Integer id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

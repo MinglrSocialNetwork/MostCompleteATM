@@ -1,0 +1,21 @@
+package com.driver;
+
+import com.beans.User;
+import com.dao.UserRepoImpl;
+
+public class MainDriver {
+	
+	private static UserRepoImpl uri = new UserRepoImpl();
+	
+	public static void insertInitialValues () {
+		
+		uri.insertUser(new User(0,"RicTyrant", "123", "Ric", "Carr") );
+	}
+	
+	public static void main(String[] args) {
+		
+		insertInitialValues();
+		
+		System.out.println(uri.selectAllUsers());
+	}
+}

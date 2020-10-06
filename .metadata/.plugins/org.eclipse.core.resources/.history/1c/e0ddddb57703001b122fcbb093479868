@@ -1,0 +1,20 @@
+package com.dao;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+@Transactional 
+@Repository("userRepo")
+public interface UserRepo {
+	
+	
+	public void insertUser();
+	
+	public void updateUser();
+	
+	public void selectByUserId();
+	
+	public void selectAllUsers();
+	
+	public void deleteUser(); 
+}
