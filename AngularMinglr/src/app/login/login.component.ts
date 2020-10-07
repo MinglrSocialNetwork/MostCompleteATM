@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
         if (this.loginFormParams.username.value == this.existingUsers[i].userName
               && this.loginFormParams.password.value == this.existingUsers[i].password  ){
                
-                this.userService.loginUser().subscribe();
+                this.userService.loginUser(this.existingUsers[i]).subscribe();
                 this.router.navigateByUrl('/globalfeed');
         }else{
           this.incorrect=true;

@@ -21,9 +21,9 @@ export class UserService {
     return this.userClient.get("http://localhost:8080/Minglr/api/8661");
   }
 
-  loginUser(): Observable<any>{
+  loginUser(user): Observable<any>{
     console.log("in login");
-    return this.userClient.post("http://localhost:8080/Minglr/login", {withCredentials: true}); 
+    return this.userClient.post("http://localhost:8080/Minglr/login",user); 
   }
 
 }

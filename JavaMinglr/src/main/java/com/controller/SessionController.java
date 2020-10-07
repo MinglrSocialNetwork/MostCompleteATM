@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dao.UserRepoImpl;
@@ -19,14 +20,19 @@ public class SessionController {
 	UserRepoImpl uri = new UserRepoImpl();
 	
 	@PostMapping(value = "login", produces = "application/json")
-	public @ResponseBody String login(HttpServletRequest req) {
+	public @ResponseBody String login(HttpServletRequest req,@RequestBody User user) {
 		HttpSession session = req.getSession();
+	
 		
-		
-		//User user = uri.selectByUserName(username);
-		
-		session.setAttribute("loggedInUser", "bobby");
-		//System.out.println(session.getAttribute("loggedInUser"));
+		session.setAttribute("loggedInUser", user);
+	
+		//session.setAttribute("loggedInUser", "Bobby");
+		System.out.println(session.getAttribute("loggedInUser"));
+		User lg = (User) session.getAttribute("loggedInUser");
+		System.out.println(lg.getFirstName());
+		System.out.println(lg.getUserName()); 
+		System.out.println(lg.getPassword()); 
+		System.out.println(lg.getId());
 		return "Logged in";
 	}
 	
