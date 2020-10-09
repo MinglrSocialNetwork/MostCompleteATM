@@ -1,0 +1,63 @@
+package com.models;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
+@Table(name = "friends_table")
+public class Friends {
+	
+	
+	@OneToMany
+	@JoinColumn(name="user_id", nullable=false)
+	private User user;
+	
+	@ManyToOne
+	@Column(name = "friends_user_id")
+	private int id;
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Friends(int id, User user) {
+		super();
+		this.id = id;
+		this.user = user;
+	}
+
+	public Friends() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Friends [id=" + id + ", user=" + user + "]";
+	}
+	
+	
+	
+	
+
+	
+	
+	
+}

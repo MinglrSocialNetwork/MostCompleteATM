@@ -33,6 +33,8 @@ export class LoginComponent implements OnInit {
       });
     }
   
+ 
+
   get loginFormParams(){
     return this.form.controls;
   }
@@ -45,13 +47,14 @@ export class LoginComponent implements OnInit {
               && this.loginFormParams.password.value == this.existingUsers[i].password  ){
                
                 this.userService.loginUser(this.existingUsers[i]).subscribe();
-                this.router.navigateByUrl('/globalfeed');
+                this.router.navigateByUrl('/personalpage');
         }else{
           this.incorrect=true;
         }
       }if(this.incorrect){
           this.form.reset();
         }
+  
       
   }
   

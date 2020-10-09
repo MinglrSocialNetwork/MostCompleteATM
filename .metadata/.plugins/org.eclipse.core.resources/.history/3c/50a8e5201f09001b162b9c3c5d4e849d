@@ -1,0 +1,20 @@
+package com.models;
+
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
+import javax.persistence.ManyToOne;
+
+@Entity
+@Table(name = "friends_table")
+public class Friends {
+	
+	@ManyToOne
+	@JoinColumn(name="user_id", nullable=false)
+	private User user;
+	
+	private void friends() {}
+	
+	
+	
+}

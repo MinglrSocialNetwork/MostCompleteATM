@@ -60,6 +60,13 @@ export class RegistrationComponent implements OnInit {
     this.password = value;
   }
 
+  reef(){
+    this.userService.getAllUsers().subscribe(data =>{
+      this.existingUsers = data;
+      console.log(this.existingUsers)
+    });
+  }
+
   onSubmit(){
     console.log("in onSubmit");
     console.log("usernameVal "+this.usernameVal +" passwordVal "+ this.passwordVal);
@@ -70,6 +77,7 @@ export class RegistrationComponent implements OnInit {
     console.log("out of onSubmit");
     this.registration.reset();  
     this.router.navigateByUrl('/login');
+    this.reef();
   }
 
   ngOnInit(): void {

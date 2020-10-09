@@ -12,6 +12,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { GlobalfeedComponent } from './globalfeed/globalfeed.component';
 import { CommentComponent } from './comment/comment.component';
 import { SearchComponent } from './search/search.component';
+import { PosthistoryComponent } from './posthistory/posthistory.component';
+import { PersonalpageComponent } from './personalpage/personalpage.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { SearchComponent } from './search/search.component';
     NavigationComponent,
     GlobalfeedComponent,
     CommentComponent,
-    SearchComponent
+    SearchComponent,
+    PosthistoryComponent,
+    PersonalpageComponent
   ],
   imports: [
     FormsModule,
