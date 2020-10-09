@@ -23,7 +23,7 @@ export class UserService {
 
   loginUser(user): Observable<any>{
     console.log("in login");
-    return this.userClient.post<any>("http://localhost:8080/Minglr/sessions/login", user); 
+    return this.userClient.post<any>("http://localhost:8080/Minglr/sessions/login", user, {withCredentials:true}); 
   }
 
   logout(): Observable<any>{
@@ -33,6 +33,6 @@ export class UserService {
 
   getUser(): Observable<any>{
     console.log("inside get user");
-    return this.userClient.get("http://localhost:8080/Minglr/sessions/getLoggedInfo");
+    return this.userClient.get("http://localhost:8080/Minglr/sessions/getLoggedInfo",{withCredentials:true});
   }
 }

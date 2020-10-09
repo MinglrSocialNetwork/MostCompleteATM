@@ -39,7 +39,7 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
-  getUsername(name){
+  getUsername(name: string){
     console.log(this.username);
     if(this.existingUsers.length > 0){
       this.username = name;
@@ -56,7 +56,7 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
-  getPassword(value){
+  getPassword(value: string){
     this.password = value;
   }
 

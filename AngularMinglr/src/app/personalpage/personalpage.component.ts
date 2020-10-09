@@ -9,15 +9,20 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./personalpage.component.css']
 })
 export class PersonalpageComponent implements OnInit {
-  currentUser: any;
+  
 
   constructor(private postService: PostService,
               private userService: UserService,
               private router: Router) { }
+           
+  currentUser: any;
 
-              
   ngOnInit(): void {
-
+    this.userService.getUser().subscribe(data => {
+      this.currentUser = data;
+      console.log(data);
+      console.log(this.currentUser);
+    });
   //this.postService.getPosts().subscribe(data => {
     //for(let item of data) {
       //if(item["userID"] == this.currentUser['userId']) {
@@ -44,13 +49,10 @@ export class PersonalpageComponent implements OnInit {
   }
 
   editProfile(){
-    this.userService.getUser().subscribe(data => {
-      this.currentUser = data;
-    });
+    
+    
     //this.userService.logout().subscribe();
     //this.router.navigateByUrl('/login');
-
-
     //Generate a text field that will update
     //the src address on the profile pic
     //giving an option to change user image.
