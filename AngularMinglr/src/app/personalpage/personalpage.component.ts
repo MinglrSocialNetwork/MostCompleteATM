@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { PostService } from '../service/post.service';
 import { UserService } from '../service/user.service';
 
+const userkey = 'minglr_key';
+
 @Component({
   selector: 'app-personalpage',
   templateUrl: './personalpage.component.html',
@@ -18,11 +20,6 @@ export class PersonalpageComponent implements OnInit {
   currentUser: any;
 
   ngOnInit(): void {
-    this.userService.getUser().subscribe(data => {
-      this.currentUser = data;
-      console.log(data);
-      console.log(this.currentUser);
-    });
   //this.postService.getPosts().subscribe(data => {
     //for(let item of data) {
       //if(item["userID"] == this.currentUser['userId']) {
